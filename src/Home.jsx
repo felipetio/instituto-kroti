@@ -1,4 +1,6 @@
 // Home page sections
+import { useLang } from './i18n.jsx';
+import { Eyebrow, Button, PatternBar, Icon, Placeholder } from './Primitives.jsx';
 
 const HeroA = ({ setRoute }) => {
   const { t } = useLang();
@@ -61,13 +63,13 @@ const HeroC = ({ setRoute }) => {
   );
 };
 
-const Hero = ({ variant, setRoute }) => {
+export const Hero = ({ variant, setRoute }) => {
   if (variant === 'split') return <HeroB setRoute={setRoute} />;
   if (variant === 'pattern') return <HeroC setRoute={setRoute} />;
   return <HeroA setRoute={setRoute} />;
 };
 
-const Stats = () => {
+export const Stats = () => {
   const { t } = useLang();
   return (
     <section className="stats">
@@ -81,7 +83,7 @@ const Stats = () => {
   );
 };
 
-const StoryBand = ({ setRoute }) => {
+export const StoryBand = ({ setRoute }) => {
   const { t } = useLang();
   return (
     <section className="story">
@@ -114,7 +116,7 @@ const ProgramCard = ({ tag, title, body, meta }) => (
   </article>
 );
 
-const ProgramGrid = () => {
+export const ProgramGrid = () => {
   const { t } = useLang();
   return (
     <section className="section">
@@ -133,7 +135,7 @@ const ProgramGrid = () => {
   );
 };
 
-const Quote = () => {
+export const Quote = () => {
   const { t } = useLang();
   return (
     <section className="quote-section">
@@ -146,5 +148,3 @@ const Quote = () => {
     </section>
   );
 };
-
-Object.assign(window, { Hero, Stats, StoryBand, ProgramGrid, Quote });

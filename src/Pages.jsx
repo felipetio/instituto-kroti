@@ -1,7 +1,10 @@
 // Institutional pages — Sobre, Povo, Videos, Equipe, Transparência, Apoiar, Contato
+import { useState } from 'react';
+import { useLang, DICT } from './i18n.jsx';
+import { Eyebrow, PatternBar, Placeholder, Icon, Button } from './Primitives.jsx';
 
 // ---------------- Sobre ----------------
-const SobrePage = () => {
+export const SobrePage = () => {
   const { t } = useLang();
   return (
     <article className="page">
@@ -46,7 +49,7 @@ const SobrePage = () => {
 };
 
 // ---------------- Povo Mebêngôkre ----------------
-const PovoPage = () => {
+export const PovoPage = () => {
   const { t, lang } = useLang();
   const gloss = DICT[lang].povo_glossary;
   return (
@@ -108,7 +111,7 @@ const VideoCard = ({ i }) => {
     </article>
   );
 };
-const VideosPage = () => {
+export const VideosPage = () => {
   const { t } = useLang();
   return (
     <article className="page">
@@ -151,7 +154,7 @@ const TeamCard = ({ i }) => {
   );
 };
 
-const EquipePage = () => {
+export const EquipePage = () => {
   const { t } = useLang();
   return (
     <article className="page">
@@ -182,7 +185,7 @@ const EquipePage = () => {
 };
 
 // ---------------- Transparência ----------------
-const TranspPage = () => {
+export const TranspPage = () => {
   const { t } = useLang();
   return (
     <article className="page">
@@ -215,10 +218,10 @@ const TranspPage = () => {
 };
 
 // ---------------- Apoiar ----------------
-const ApoiarPage = () => {
+export const ApoiarPage = () => {
   const { t, lang } = useLang();
-  const [amt, setAmt] = React.useState(120);
-  const [freq, setFreq] = React.useState('monthly');
+  const [amt, setAmt] = useState(120);
+  const [freq, setFreq] = useState('monthly');
   const presets = [60, 120, 240, 600];
   const freqLabel = freq==='monthly'
     ? (lang==='pt' ? '/mês ' : '/mo ')
@@ -275,10 +278,10 @@ const ApoiarPage = () => {
 };
 
 // ---------------- Contato ----------------
-const ContatoPage = () => {
+export const ContatoPage = () => {
   const { t, lang } = useLang();
-  const [sent, setSent] = React.useState(false);
-  const [form, setForm] = React.useState({
+  const [sent, setSent] = useState(false);
+  const [form, setForm] = useState({
     name: '', email: '', org: '', subject: 'general', message: '',
   });
   const update = (k, v) => setForm(f => ({...f, [k]: v}));
@@ -363,5 +366,3 @@ const ContatoPage = () => {
     </article>
   );
 };
-
-Object.assign(window, { SobrePage, PovoPage, VideosPage, EquipePage, TranspPage, ApoiarPage, ContatoPage });

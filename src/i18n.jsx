@@ -1,7 +1,9 @@
+import { createContext, useContext } from 'react';
+
 // Simple PT/EN dictionary. Mebêngôkre words are kept in both languages
 // (rendered as <em>italic</em> with dotted accent) because that was an
 // explicit ask from the brief.
-const DICT = {
+export const DICT = {
   pt: {
     nav_institute: 'Instituto',
     nav_people: 'Povo Mebêngôkre',
@@ -373,9 +375,11 @@ const DICT = {
   },
 };
 
-const LangCtx = React.createContext(null);
-function useLang() { return React.useContext(LangCtx); }
-function LangProvider({ lang, children }) {
+const LangCtx = createContext(null);
+
+export function useLang() { return useContext(LangCtx); }
+
+export function LangProvider({ lang, children }) {
   const t = (key, vars) => {
     let s = DICT[lang]?.[key];
     if (s === undefined) s = DICT.pt[key] ?? key;
@@ -386,5 +390,3 @@ function LangProvider({ lang, children }) {
   };
   return <LangCtx.Provider value={{ lang, t }}>{children}</LangCtx.Provider>;
 }
-
-Object.assign(window, { LangProvider, useLang });

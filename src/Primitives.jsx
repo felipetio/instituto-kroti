@@ -1,33 +1,33 @@
 // Primitives: Button, Badge, Eyebrow, PatternBar, Icon, Placeholder, MbkWord
 
-const Button = ({ variant='primary', size='md', children, ...p }) => (
+export const Button = ({ variant='primary', size='md', children, ...p }) => (
   <button {...p} className={`btn btn-${variant} btn-${size} ${p.className||''}`}>{children}</button>
 );
 
-const Badge = ({ tone='soft', children }) => (
+export const Badge = ({ tone='soft', children }) => (
   <span className={`badge badge-${tone}`}>{children}</span>
 );
 
-const Eyebrow = ({ children }) => <div className="eyebrow">{children}</div>;
+export const Eyebrow = ({ children }) => <div className="eyebrow">{children}</div>;
 
-const PatternBar = ({ height=14, invert=false }) => (
+export const PatternBar = ({ height=14, invert=false }) => (
   <div className={`pattern-bar ${invert?'inv':''}`} style={{ height, backgroundSize: `auto ${height}px` }} />
 );
 
 // Warm, obvious placeholder for images. `tone` picks the gradient family,
 // `label` is the caption rendered in the center.
-const Placeholder = ({ tone='', label='Imagem', ratio, style, className='' }) => (
+export const Placeholder = ({ tone='', label='Imagem', ratio, style, className='' }) => (
   <div className={`placeholder ${tone} ${className}`} style={{ aspectRatio: ratio, ...style }}>
     <span className="p-label">{label}</span>
   </div>
 );
 
 // Inline Mebêngôkre word, with translation on hover (title attr)
-const Mbk = ({ children, translate }) => (
+export const Mbk = ({ children, translate }) => (
   <span className="mbk" title={translate || ''}>{children}</span>
 );
 
-const Icon = ({ name, size=20 }) => {
+export const Icon = ({ name, size=20 }) => {
   const paths = {
     home: 'M3 9l9-7 9 7v11a2 2 0 01-2 2h-4v-7H9v7H5a2 2 0 01-2-2V9z',
     heart: 'M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z',
@@ -62,5 +62,3 @@ const Icon = ({ name, size=20 }) => {
     </svg>
   );
 };
-
-Object.assign(window, { Button, Badge, Eyebrow, PatternBar, Icon, Placeholder, Mbk });

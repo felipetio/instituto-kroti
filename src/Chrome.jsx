@@ -1,4 +1,7 @@
 // Site header + footer
+import { useLang } from './i18n.jsx';
+import { FooterLogo } from './FooterLogo.jsx';
+import { PatternBar, Icon, Button } from './Primitives.jsx';
 
 const NAV = [
   ['/', 'nav_institute'],
@@ -9,7 +12,7 @@ const NAV = [
   ['/contato', 'nav_contact'],
 ];
 
-const Header = ({ route, setRoute, lang, setLang, dark, setDark }) => {
+export const Header = ({ route, setRoute, lang, setLang, dark, setDark }) => {
   const { t } = useLang();
   return (
     <>
@@ -55,7 +58,7 @@ const Header = ({ route, setRoute, lang, setLang, dark, setDark }) => {
   );
 };
 
-const Footer = ({ setRoute }) => {
+export const Footer = ({ setRoute }) => {
   const { t } = useLang();
   return (
     <footer className="site-footer">
@@ -91,5 +94,3 @@ const Footer = ({ setRoute }) => {
     </footer>
   );
 };
-
-Object.assign(window, { Header, Footer });
