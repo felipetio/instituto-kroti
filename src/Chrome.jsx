@@ -18,7 +18,7 @@ export const Header = ({ route, setRoute, lang, setLang, dark, setDark }) => {
     <>
       <header className="site-header">
         <a className="brand" href="#/" onClick={e=>{e.preventDefault(); setRoute('/');}}>
-          <img src="assets/logo-kroti.svg" alt="Instituto Kroti Kayapó" />
+          <img src={dark ? "assets/logo-kroti-light.svg" : "assets/logo-kroti.svg"} alt="Instituto Kroti Kayapó" />
         </a>
         <nav className="site-nav">
           {NAV.map(([href, key]) => (

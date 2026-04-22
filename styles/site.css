@@ -51,8 +51,7 @@ body.dark .form-grid input,
 body.dark .form-grid textarea,
 body.dark .form-grid select { background: var(--surface-sunken); color: var(--cal); border-color: var(--border-strong); }
 body.dark .pattern-bar { filter: invert(1); }
-body.dark .pattern-bar.inv { filter: none; }
-body.dark .site-header .brand img,
+body.dark .pattern-bar.inv { filter: invert(1); }
 body.dark .lang-wrap svg { filter: invert(1); }
 body.dark .placeholder { background: linear-gradient(135deg, #2A231A, #3A2E20); color: var(--argila-soft); }
 body.dark .story-pull { border-left-color: var(--urucum); }
